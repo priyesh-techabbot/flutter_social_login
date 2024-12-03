@@ -32,11 +32,14 @@
 			<key>CFBundleURLSchemes</key>
 			<array>
 				<string>socialflutterdemo</string>
+				<string>com.googleusercontent.apps.591705112607-i2h24q4eqbhh4ho7fe1tt11609bjadh1</string>
 			</array>
 		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>$(FLUTTER_BUILD_NUMBER)</string>
+	<key>GIDClientID</key>
+	<string>591705112607-i2h24q4eqbhh4ho7fe1tt11609bjadh1.apps.googleusercontent.com</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIApplicationSupportsIndirectInputEvents</key>
