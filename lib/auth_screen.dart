@@ -2,6 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_social_login/loader.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:twitter_login/twitter_login.dart';
 
 class AuthScreen extends StatefulWidget {
   const AuthScreen({super.key});
@@ -37,27 +38,28 @@ class _AuthScreenState extends State<AuthScreen> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 InkWell(
-                  onTap: signinWithFacebook,
+                  onTap: signInWithTwitter,
                   child: Container(
                     width: width / 2,
                     padding: const EdgeInsets.all(6),
                     decoration: BoxDecoration(
-                      color: Colors.blue,
+                      color: Colors.white,
+                      border: Border.all(color: Colors.black),
                       borderRadius: BorderRadius.circular(30),
                     ),
-                    child: Row(
+                    child:  Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
-                        Image.asset(
-                          'assets/facebook_icon.png',
+                        const SizedBox(width: 10),
+                         Image.asset(
+                          'assets/X_logo.jpg',
                           height: 25,
-                          color: Colors.white,
                         ),
                         const SizedBox(width: 10),
                         const Text(
-                          "Signin With Facebook",
+                          "Signin With X",
                           style: TextStyle(
-                            color: Colors.white,
+                            color: Colors.black,
                             fontWeight: FontWeight.w500,
                           ),
                         ),
@@ -105,6 +107,42 @@ class _AuthScreenState extends State<AuthScreen> {
   }
 
   Future<void> signinWithFacebook() async {}
+
+  Future<void> signInWithTwitter() async {
+    try {
+      isLoading = true;
+      setState(() {});
+      // Create a TwitterLogin instance
+      final twitterLogin = TwitterLogin(
+          apiKey: 'EP4JF7B7y8q4JFBCONrLAM8XN',
+          apiSecretKey: 'sdRKurpBeAUCdBV7F4IznqlJcKnN33hvvnPOP29gr4qbiIzjil',
+          redirectURI:
+              'socialflutterdemo://');
+
+      // Trigger the sign-in flow
+      final authResult = await twitterLogin.login();
+
+      if (authResult.authToken != null) {
+        // Create a credential from the access token
+        final twitterAuthCredential = TwitterAuthProvider.credential(
+          accessToken: authResult.authToken!,
+          secret: authResult.authTokenSecret!,
+        );
+
+        // Once signed in, return the UserCredential
+        await FirebaseAuth.instance.signInWithCredential(twitterAuthCredential);
+      } else {
+        isLoading = false;
+        setState(() {});
+      }
+    } catch (e, s) {
+      isLoading = false;
+      setState(() {});
+
+      print(e);
+      print(s);
+    }
+  }
 
   Future<void> signinWithGoogle() async {
     try {
