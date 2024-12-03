@@ -1,16 +1,18 @@
-# flutter_social_login
+# Social Login
 
-A new Flutter project.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+Project has social login with Google, X (Twitter) and GitHub
 
-A few resources to get you started if this is your first Flutter project:
+## Technologies Used
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- Flutter(Dart), Firebase
+
+
+
+## Screen Shots
+
+
+| ![auth](https://raw.githubusercontent.com/priyesh-techabbot/flutter_social_login/refs/heads/main/auth.png) | ![facebook](https://raw.githubusercontent.com/priyesh-techabbot/flutter_social_login/refs/heads/main/facebook.png) | ![github](https://raw.githubusercontent.com/priyesh-techabbot/flutter_social_login/refs/heads/main/github.png) |
+|-------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------|
